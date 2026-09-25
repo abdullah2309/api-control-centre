@@ -1,0 +1,8 @@
+{
+  "name": "Statusmith",
+  "description": "Production-grade SaaS monitoring platform with real HTTP health checks, automatic incident management, public status pages, and analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

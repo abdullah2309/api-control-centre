@@ -1,0 +1,169 @@
+export type ServiceStatus = 'OPERATIONAL' | 'DEGRADED' | 'DOWN' | 'PAUSED';
+export type CheckStatus = 'UP' | 'DOWN';
+export type IncidentStatus = 'INVESTIGATING' | 'IDENTIFIED' | 'MONITORING' | 'RESOLVED';
+export type IncidentSeverity = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+export type MaintenanceStatus = 'SCHEDULED' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
+
+export type NotificationType =
+  | 'SERVICE_DOWN'
+  | 'SERVICE_RECOVERED'
+  | 'INCIDENT_CREATED'
+  | 'INCIDENT_UPDATED'
+  | 'INCIDENT_RESOLVED'
+  | 'MAINTENANCE_STARTED'
+  | 'MAINTENANCE_COMPLETED';
+
+export interface User {
+  id: string;
+  email: string;
+  passwordHash: string;
+  firstName: string;
+  lastName: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Workspace {
+  id: string;
+  name: string;
+  slug: string;
+  ownerId: string;
+  createdAt: string;
+}
+
+export interface Service {
+  id: string;
+  workspaceId: string;
+  name: string;
+  description: string;
+  url: string;
+  httpMethod: 'GET' | 'POST' | 'HEAD';
+  intervalSeconds: number;
+  timeoutSeconds: number;
+  expectedStatusCodes: number[];
+  retryCount: number;
+  failureThreshold: number;
+  monitoringEnabled: boolean;
+  status: ServiceStatus;
+  lastCheckedAt: string | null;
+  lastResponseTimeMs: number | null;
+  lastHttpStatusCode: number | null;
+  uptimePercentage: number;
+  recentChecks?: MonitorCheck[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MonitorCheck {
+  id: string;
+  serviceId: string;
+  status: CheckStatus;
+  httpStatusCode: number | null;
+  responseTimeMs: number | null;
+  errorMessage: string | null;
+  checkedAt: string;
+}
+
+export interface Incident {
+  id: string;
+  workspaceId: string;
+  serviceId: string;
+  title: string;
+  description: string;
+  status: IncidentStatus;
+  severity: IncidentSeverity;
+  startedAt: string;
+  resolvedAt: string | null;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IncidentUpdate {
+  id: string;
+  incidentId: string;
+  message: string;
+  status: IncidentStatus;
+  createdBy: string;
+  createdAt: string;
+}
+
+export interface Maintenance {
+  id: string;
+  workspaceId: string;
+  title: string;
+  description: string;
+  serviceIds: string[];
+  startAt: string;
+  endAt: string;
+  status: MaintenanceStatus;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Notification {
+  id: string;
+  workspaceId: string;
+  userId: string;
+  type: NotificationType;
+  title: string;
+  message: string;
+  isRead: boolean;
+  metadata?: Record<string, any>;
+  createdAt: string;
+}
+
+export interface NotificationPrefs {
+  userId: string;
+  serviceDown: boolean;
+  serviceRecovered: boolean;
+  incidentCreated: boolean;
+  incidentResolved: boolean;
+  maintenanceStarted: boolean;
+  emailAlerts: boolean;
+}
+
+export interface StatusPageConfig {
+  id: string;
+  workspaceId: string;
+  slug: string;
+  companyName: string;
+  logoUrl: string;
+  tagline: string;
+  accentColor: string;
+  showUptime: boolean;
+  showIncidents: boolean;
+  showMaintenance: boolean;
+  showResponseTime: boolean;
+  theme: 'light' | 'dark' | 'system';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ActivityLog {
+  id: string;
+  workspaceId: string;
+  userId: string;
+  eventType: string;
+  entityType: string;
+  entityId: string;
+  message: string;
+  metadata?: Record<string, any>;
+  createdAt: string;
+}
+
+export interface RealtimeEventPayload {
+  type:
+    | 'SERVICE_STATUS_CHANGED'
+    | 'CHECK_COMPLETED'
+    | 'INCIDENT_CREATED'
+    | 'INCIDENT_UPDATED'
+    | 'INCIDENT_RESOLVED'
+    | 'MAINTENANCE_STARTED'
+    | 'MAINTENANCE_COMPLETED'
+    | 'NOTIFICATION_CREATED'
+    | 'HEARTBEAT';
+  data: any;
+  timestamp: string;
+}
