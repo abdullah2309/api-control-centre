@@ -283,7 +283,7 @@ class ApiClient {
       throw new Error(json.message || 'Failed to fetch public status page');
     }
     return json.data as PublicStatusData;
-  }
+  } 
 
   // --- Activity Logs ---
   async getActivityLogs() {
