@@ -28,7 +28,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         await login(email, password);
       } else {
         await register({ email, password, firstName, workspaceName });
-      }
+      } 
       onClose();
     } catch (err: any) {
       setError(err.message || 'Authentication failed');
