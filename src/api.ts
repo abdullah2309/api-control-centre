@@ -64,7 +64,7 @@ class ApiClient {
     firstName: string;
     lastName?: string;
     workspaceName?: string;
-  }) {
+  }) { 
     const data = await this.request<{
       user: User;
       workspace: Workspace;
