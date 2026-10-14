@@ -21,6 +21,7 @@ const _API_BASE = '/api/v2';
 class ApiClient {
   private getHeaders(): HeadersInit {
     const token = localStorage.getItem('statusmith_token');
+    // const headers: Record<string, string> = {
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
     };
@@ -28,6 +29,7 @@ class ApiClient {
       headers['Authorization'] = `Bearer ${token}`;
     }
     return headers;
+    // return Oldheaders;
   }
 
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
