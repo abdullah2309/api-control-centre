@@ -10,7 +10,7 @@ interface AuthModalProps {
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { login, register, loginDemo, isLoading } = useAuth();
   const [mode, setMode] = useState<'LOGIN' | 'REGISTER'>('LOGIN');
-
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
