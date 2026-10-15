@@ -33,3 +33,7 @@ A high-performance API monitoring, status management, and control center built w
 ├── server.ts       # Backend entry point
 ├── tsconfig.json   # TypeScript configuration
 └── vite.config.ts  # Vite build configuration
+```
+
+Live demo
+https://statusmith.ai.studio/
