@@ -27,7 +27,7 @@ export function IncidentsView({ incidents, services, onRefreshData }: IncidentsV
   const [updateStatus, setUpdateStatus] = useState<IncidentStatus>('INVESTIGATING');
   const [isPostingUpdate, setIsPostingUpdate] = useState(false);
 
-  // New Incident Modal
+  // New Incident Modal -
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDesc, setNewDesc] = useState('');
