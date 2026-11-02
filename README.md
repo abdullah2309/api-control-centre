@@ -35,5 +35,5 @@ A high-performance API monitoring, status management, and control center built w
 └── vite.config.ts  # Vite build configuration
 ```
 
-Live demo
+Live demo:
 https://statusmith.ai.studio/
