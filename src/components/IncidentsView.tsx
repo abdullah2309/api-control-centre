@@ -12,7 +12,7 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 import { Incident, Service, IncidentStatus, IncidentSeverity } from '../types';
-import { api } from '../api';
+import { api } from '../api'; 
 
 interface IncidentsViewProps {
   incidents: Incident[];
