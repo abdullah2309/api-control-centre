@@ -300,6 +300,7 @@ class MonitoringWorker {
         timestamp: new Date().toISOString(),
       });
     }
+    // End
   }
 }
 
