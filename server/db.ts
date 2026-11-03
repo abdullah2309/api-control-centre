@@ -85,7 +85,7 @@ class Database {
     const demoUser: User = {
       id: userId,
       email: 'demo@statusmith.com',
-      passwordHash,
+      passwordHash, 
       firstName: 'Alex',
       lastName: 'Smith',
       createdAt: now.toISOString(),
