@@ -24,7 +24,7 @@ import { AuthModal } from './components/AuthModal';
 
 function MainApp() {
   const { user, workspace } = useAuth();
-
+  
   // Primary Data State (with instant cached restore for zero-latency initial render)
   const [services, setServices] = useState<Service[]>(() => {
     try {
