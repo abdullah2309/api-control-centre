@@ -15,7 +15,7 @@ A high-performance API monitoring, status management, and control center built w
 
 ## 🛠️ Tech Stack
 
-- **Runtime & Package Manager**: [Bun](https://bun.sh/)
+- **Runtime & Package Manager**: [Bun](https://bun.sh/) 
 - **Frontend Framework / Build Tool**: [Vite](https://vitejs.dev/) with TypeScript
 - **Backend Server**: TypeScript (`server.ts`)
 
