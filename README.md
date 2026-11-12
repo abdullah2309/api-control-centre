@@ -37,3 +37,6 @@ A high-performance API monitoring, status management, and control center built w
 
 ## Live demo:
 https://statusmith.ai.studio/
+
+## Testing apis:
+http://4514567tsdfsdadfasdfas.atwebpages.com/
