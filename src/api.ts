@@ -16,7 +16,7 @@ import {
 } from './types';
 
 const API_BASE = '/api/v1';
-const _API_BASE = '/api/v2';
+const __API_BASE = '/api/v2';
 
 class ApiClient {
   private getHeaders(): HeadersInit {
